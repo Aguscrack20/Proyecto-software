@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./Estilo1.css">
+    <script src="./interaccion.js"></script>
 </head>
 <body>
     
+    <h1>Agendá tu visita médica</h1>
+
+    <form id="formAgenda">
+        <p>Nombre: <input type="text" id="nombre" required></p>
+        <p>Email: <input type="email" id="email" required></p>
+        <p>Seleccione el médico:
+            <select id="medico" required>
+                <option value="">Seleccione...</option>
+                <option value="Dr. Mauro Nicolás D'Agostino">Dr. Mauro Nicolás D'Agostino (Dermatología)</option>
+                <option value="Dr. Luis Alfredo Alfonso">Dr. Luis Alfredo Alfonso (Pediatría)</option>
+                <option value="Dr. Mario Eduardo F. Bustos">Dr. Mario Eduardo F. Bustos (Cirugia)</option>
+            </select>
+        </p>
+        <p>Fecha: <input type="date" id="fecha" required></p>
+        <p><button type="submit">Agendar visita</button></p>
+    </form>
+<script>
+    document.getElementById("formAgenda").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const email = document.getElementById("email").value;
+        const medico = document.getElementById("medico").value;
+        const fecha = document.getElementById("fecha").value;
+
+        const fechaSeleccionada = new Date(fecha);
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+        const unaSemanaDespues = new Date(hoy);
+        unaSemanaDespues.setDate(hoy.getDate() + 7);
+
+        if (fechaSeleccionada < unaSemanaDespues) {
+            alert("Debe seleccionar una fecha con al menos una semana de anticipación.");
+            return;
+        }
+        if (fechaSeleccionada>unaSemanaDespues) {
+    if (fechaSeleccionada > unaSemanaDespues) {
+    alert("¡Turno registrado exitosamente! Gracias por elegirnos.");
+     window.location.href = "index1.html"; 
+        }}   
+        });
+</script>
+
+
+    
+    
+    
+</form>
 </body>
 </html>
