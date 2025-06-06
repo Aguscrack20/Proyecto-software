@@ -1,3 +1,7 @@
+body{
+background-color: green;
+
+}
 h1{
     text-align: center;
     color: blue;
@@ -8,7 +12,6 @@ p{
 
 text-align: center;
 color: black;
-font-size: large;
 font-size: 30px;
 
 }
